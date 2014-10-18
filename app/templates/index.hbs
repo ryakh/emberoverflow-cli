@@ -2,5 +2,13 @@
   <div class="col-md-8">
     <h2>{{siteTitle}}</h2>
     <p>It is {{currentTime}}</p>
+
+    <ul>
+    {{#each}}
+      <li>
+        {{title}} — asked by {{author}}
+      </li>
+    {{/each}}
+    </ul>
   </div>
 </div>
