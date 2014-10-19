@@ -13,3 +13,13 @@ test('it exists', function() {
   var controller = this.subject();
   ok(controller);
 });
+
+test('siteTitle returns correct value', function() {
+  var controller = this.subject();
+  equal(controller.get('siteTitle'), 'Welcome to Emberoverflow');
+});
+
+test('currentTime returns Date object', function() {
+  var controller = this.subject();
+  equal(controller.get('currentTime') instanceof Date, true);
+});
