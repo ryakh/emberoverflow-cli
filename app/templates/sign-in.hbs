@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-8">
+  {{#if currentUser.isSignedIn}}
+    <p>You are already signed-in!</p>
+  {{else}}
+    <form {{action "signIn" on="submit"}}>
+      <div class="form-group">
+        <label for="email">Email address</label>
+
+        {{input id="email"
+          value=email
+          classNames="form-control"
+          placeholder="Enter your email address"}}
+      </div>
+
+      <button class="btn btn-primary" type="submit">
+        Sign in
+      </button>
+    </form>
+  {{/if}}
+  </div>
+</div>
