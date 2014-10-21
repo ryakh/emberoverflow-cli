@@ -1,8 +1,4 @@
-import Ember from 'ember';
-
-var currentUser = Ember.Object.extend({
-  userId: localStorage['userToken']
-});
+import currentUser from '../models/current-user';
 
 export var initialize = function(container, application) {
   application.register('application:variables', currentUser, { singleton: true });
