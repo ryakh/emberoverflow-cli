@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('about');
   this.resource('question', { path: '/:question_id' });
   this.route('sign-in');
+  this.route('ask-question');
 });
 
 export default Router;
