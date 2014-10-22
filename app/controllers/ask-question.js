@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import SetAuthor from '../mixins/set-author';
 
-export default Ember.ArrayController.extend({
+export default Ember.ArrayController.extend(SetAuthor, {
   sortProperties: ['date'],
   sortAscending: true,
 
@@ -16,9 +17,7 @@ export default Ember.ArrayController.extend({
         date: new Date()
       });
 
-      this.get('currentUser.user').then(function(user) {
-        question.set('author', user);
-      });
+      this.setAuthorFor(question);
 
       var controller = this;
 
