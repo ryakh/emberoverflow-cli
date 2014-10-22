@@ -4,15 +4,9 @@
     <p>It is {{currentTime}}</p>
 
     <ul>
-    {{#each}}
-      <li>
-        {{#link-to "question" this}}
-          {{title}}
-        {{/link-to}}
-
-        (asked by {{author.fullname}})
-      </li>
-    {{/each}}
+      {{#each}}
+        {{question-preview question=this}}
+      {{/each}}
     </ul>
   </div>
 </div>
