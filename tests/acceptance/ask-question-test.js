@@ -19,7 +19,9 @@ test('visiting /ask-question', function() {
 
   fillIn("#title", "Question title");
   fillIn("#question", "Question");
+  click("button");
 
+  fillIn("#answer", "Answer");
   click("button");
 
   andThen(function(){
@@ -33,6 +35,18 @@ test('visiting /ask-question', function() {
       find("p:first").text().replace(/\s+/g, ''),
       "Question",
       "Question is rendered"
+    );
+
+    notEqual(
+      find(".panel").length,
+      0,
+      "New answer was added"
+    );
+    
+    equal(
+      find(".panel-body").text().replace(/\s+/g, ''),
+      "Answer",
+      "Question was answered"
     );
   });
 });
