@@ -12,39 +12,39 @@ module('Acceptance: Index', {
   }
 });
 
-test('index page has a title and a list of questions', function() {
-  visit('/');
+test("index page has a title and a list of questions", function() {
+  visit("/");
 
-    andThen(function() {
+  andThen(function() {
     equal(
-      find('h2').text(),
-      'Welcome to Emberoverflow',
-      'Application header is rendered'
+      find("h2").text(),
+      "Welcome to Emberoverflow",
+      "Application header is rendered"
     );
 
-    equal(
-      find('ul:not(.nav) > li').length,
-      2,
-      'There are two questions in the list'
+    notEqual(
+      find("ul:not(.nav) > li").length,
+      0,
+      "There are questions in the list"
     );
   });
 });
 
-test('quesion links on index page lead to questions', function() {
-  visit('/');
-  click('ul:not(.nav) > li > a:first');
+test("quesion links on index page lead to questions", function() {
+  visit("/");
+  click("ul:not(.nav) > li > a:first");
 
   andThen(function() {
     equal(
-      find('h2').length,
-      1,
-      'Question header is rendered'
+      find("h2").length,
+      2,
+      "Question header and application headers are rendered"
     );
 
     equal(
-      find('p').length,
-      2,
-      'Question and author are rendered'
+      find("p").length,
+      3,
+      "Question, author and edit link are rendered"
     );
   });
 });
